@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Datos e información en gráficas</title>
+        <style>
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                text-align: center;
+            }
+
+            div {
+                width: min(95%, 500px);
+                margin: 2vh auto 5vh auto; /*top right left bottom*/
+            }
+
+            svg {
+                margin: 1rem;
+            }
+
+            p {
+                margin: 1rem;
+            }
+
+            .grafico_donut {
+                scale: .6
+                
+            }
+            .leyenda1{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: .15vh
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+
+            <!-- GRÁFICA 1: ícono recortado con imagen de fondo; cambiar imagen y pictograma-->
+            <svg viewBox="0 0 16 16" width="280" > <!-- viewbox = lienzo del dibujo/caja-->
+                <defs>
+                    <!-- clipPath define la silueta que recorta la imagen -->
+                    <clipPath id="recorte">
+                        <path d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
+                        <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/> <!-- son coordenadas de vectores que forman dibujos-->
+                    </clipPath>
+                </defs>
+                
+                <image height="100%" width="100%" href="https://raw.githubusercontent.com/jjugodemango/DNO-WEB-clase3/main/inverano%20final%20final%20(1).png" clip-path="url(#recorte)" />
+                <rect height="16" width="16" fill="darkseagreen" opacity="0.15" clip-path="url(#recorte)"></rect>
+                <!-- La imagen se muestra recortada con la forma del path -->
+            </svg>
+
+            <h2>
+                ¿QUÉ EPOCA DEL AÑO PREFIEREN LOS CHILENOS?
+            </h2>
+
+            <!-- GRÁFICA 2: gráfico de dona (donut chart) -->
+            <svg viewBox="0 0 42 23">
+                <g transform="translate(3,0)">
+                    <g class="grafico_donut">
+                        <circle cx="21" cy="21" r="15.9" fill="#fff" stroke="coral" stroke-width="2"></circle>
+                        <circle class="primavera" cx="21" cy="21" r="15.9" fill="transparent" stroke="lightpink" stroke-width="2" stroke-dasharray="35 65" stroke-dashoffset="25"></circle>
+                        <circle class="verano" cx="21" cy="21" r="15.9" fill="transparent" stroke="gold" stroke-width="2" stroke-dasharray="25 75" stroke-dashoffset="90"></circle>
+                        <circle class="invierno" cx="21" cy="21" r="15.9" fill="transparent" stroke="dodgerblue" stroke-width="2" stroke-dasharray="23 77" stroke-dashoffset="65"></circle>
+                        <text x="50%" y="29" dominant-baseline="middle" text-anchor="middle" font-size="6" fill="lightpink">35%</text>
+                        
+                        <svg viewBox="0 0 16 16" fill="lightpink" x="15" y="10" width="12" height="12">
+                            <path d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
+                            <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                        </svg>
+                    </g>
+                    <g transform=translate(27,10)>
+                        <circle transform="translate(0,0)" r=".65" fill="lightpink" /> <text class="leyenda1" transform="translate(1.5,0.25)">Primavera</text>
+                        <circle transform="translate(0, 2)" r=".65" fill="gold" /> <text class="leyenda1" transform="translate(1.5,2.25)">Verano</text>
+                        <circle transform="translate(0, 4)" r=".65" fill="dodgerblue" /> <text class="leyenda1" transform="translate(1.5,4.25)">Invierno</text>
+                        <circle transform="translate(0,6)" r=".65" fill="orange" /> <text class="leyenda1" transform="translate(1.5,6.25)">Otoño</text>
+                    </g>
+                </g>
+            </svg>
+
+            <p>
+                Estadísticamente en un grupo de 20 personas, aproximadamente 7 personas serían primaveristas, 5 veranistas, 4 serían inviernistas y los últimos 4, otoñistas.
+            </p>
+
+            <!-- GRÁFICA 3: gráfico de pictogramas (se dibuja con JavaScript) -->
+            <svg viewBox="0 0 160 37" id="personas"></svg>
+
+
+        </div>
+
+        <script>
+            // Dibujamos 10 íconos de persona, uno por cada unidad
+            for (var i = 0; i < 20; i++) {
+                // Los primeros 8 van en naranja (representan el 79% ≈ 8 de 10)
+                // Los últimos 2 van en gris
+              var color;
+                if (i < 3) {color="lightpink"} // 3 y 4
+                else if (i < 6 ) {color="gold"} // 3 y 2
+                else if (i < 8) {color="dodgerblue"} //2 y 2
+                else if (i < 10) {color="orange"} //2 y 2
+                else if (i < 14) {color="lightpink"}
+                else if (i < 16) {color="gold"}
+                else if (i < 18) {color="dodgerblue"}
+                else {color="orange"}
+                
+              var col = (i % 10)* 16;        // columna: 0–9 (se reinicia cada 10)
+              var row = Math.floor(i / 10)* 20;  // fila: 0 (primeros 10) o 1 
+                
+                // Cada ícono se desplaza hacia la derecha con translate
+                document.querySelector("#personas").innerHTML +=
+                    `<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" fill="${color}" transform="translate(${col} ${row})" />`;
+            }
+            //script fue escrito con ayuda de claude ia (especificamente para sacar el codigo base que usa "if-else" y para disponer los iconos con 2 filas)
+        </script>
+    </body>
+</html>
